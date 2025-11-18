@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fedar - DNF Package Manager</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cantarell:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-box"></i>
+                    </div>
+                    <span>Fedar</span>
+                    <span class="alpha-badge">Alpha</span>
+                </div>
+                <div class="nav-links">
+                    <a href="#download">Download</a>
+                    <a href="#about">About</a>
+                    <a href="https://fedarproject.xyz/donate" target="_blank" class="donate-link">
+                        <i class="fas fa-heart"></i>
+                        Donate
+                    </a>
+                    <a href="https://github.com" target="_blank" class="github-link">
+                        <i class="fab fa-github"></i>
+                        GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Package Management for Fedora</h1>
+                <p class="hero-description">
+                    A GTK4-based DNF package manager with a clean interface. 
+                    Manage your software without the terminal.
+                </p>
+                <div class="hero-actions">
+                    <a href="#download" class="btn btn-primary">
+                        <i class="fas fa-download"></i>
+                        Get Fedar
+                    </a>
+                    <a href="https://github.com" target="_blank" class="btn btn-secondary">
+                        <i class="fab fa-github"></i>
+                        Source Code
+                    </a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="app-preview">
+                    <div class="app-window">
+                        <div class="window-header">
+                            <div class="window-controls">
+                                <span class="control"></span>
+                                <span class="control"></span>
+                                <span class="control"></span>
+                            </div>
+                        </div>
+                        <div class="window-content">
+                            <div class="preview-tabs">
+                                <div class="tab active">Search</div>
+                                <div class="tab">Updates</div>
+                                <div class="tab">Installed</div>
+                            </div>
+                            <div class="preview-search">
+                                <i class="fas fa-search"></i>
+                                <input type="text" placeholder="Search packages..." readonly>
+                            </div>
+                            <div class="preview-results">
+                                <div class="result-item">
+                                    <i class="fas fa-box"></i>
+                                    <div class="result-info">
+                                        <div class="result-name">vlc</div>
+                                        <div class="result-desc">Video player</div>
+                                    </div>
+                                    <i class="fas fa-chevron-right"></i>
+                                </div>
+                                <div class="result-item">
+                                    <i class="fas fa-box"></i>
+                                    <div class="result-info">
+                                        <div class="result-name">firefox</div>
+                                        <div class="result-desc">Web browser</div>
+                                    </div>
+                                    <i class="fas fa-chevron-right"></i>
+                                </div>
+                                <div class="result-item">
+                                    <i class="fas fa-box"></i>
+                                    <div class="result-info">
+                                        <div class="result-name">gimp</div>
+                                        <div class="result-desc">Image editor</div>
+                                    </div>
+                                    <i class="fas fa-chevron-right"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="getting-started">
+        <div class="container">
+            <div class="getting-started-content">
+                <h2 class="section-title">Getting Started</h2>
+                <p class="section-description">Fedar makes package management simple and intuitive</p>
+                
+                <div class="steps-grid">
+                    <div class="step-card">
+                        <div class="step-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <h3 class="step-title">Search</h3>
+                        <p class="step-description">Type the name of any package to find it instantly</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-icon">
+                            <i class="fas fa-info-circle"></i>
+                        </div>
+                        <h3 class="step-title">View Details</h3>
+                        <p class="step-description">See package information, size, and description</p>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-icon">
+                            <i class="fas fa-download"></i>
+                        </div>
+                        <h3 class="step-title">Install</h3>
+                        <p class="step-description">Click install and enter your password to get started</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="download" class="download">
+        <div class="container">
+            <div class="download-content">
+                <h2 class="download-title">Download</h2>
+                <p class="download-description">Install Fedar on Fedora Linux</p>
+                
+                <div class="download-card">
+                    <div class="download-header">
+                        <div class="download-icon">
+                            <i class="fab fa-linux"></i>
+                        </div>
+                        <div>
+                            <h3 class="download-card-title">Fedora Linux</h3>
+                            <p class="download-card-description">Install from source</p>
+                        </div>
+                    </div>
+                    
+                    <div class="download-requirements">
+                        <div class="requirement">
+                            <i class="fas fa-check"></i>
+                            <span>Python 3</span>
+                        </div>
+                        <div class="requirement">
+                            <i class="fas fa-check"></i>
+                            <span>GTK4 & libadwaita</span>
+                        </div>
+                        <div class="requirement">
+                            <i class="fas fa-check"></i>
+                            <span>DNF package manager</span>
+                        </div>
+                    </div>
+                    
+                    <div class="install-instructions">
+                        <h4 class="instructions-title">Installation</h4>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <span>Terminal</span>
+                                <button class="copy-btn" onclick="copyCode(this)">
+                                    <i class="fas fa-copy"></i>
+                                    Copy
+                                </button>
+                            </div>
+                            <pre><code># Clone repository
+git clone https://github.com/kieranrob32/Fedar
+cd fedar
+
+# Install dependencies
+sudo dnf install python3-gobject python3-libadwaita gtk4-devel libadwaita-devel
+
+# Run Fedar
+python3 main.py</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <h2 class="about-title">About</h2>
+                <p class="about-description">
+                    Fedar is a GTK4-based package manager for Fedora Linux. 
+                    It provides a graphical interface for managing DNF packages without using the terminal.
+                </p>
+                <div class="about-info">
+                    <div class="info-item">
+                        <i class="fas fa-code"></i>
+                        <div>
+                            <strong>Open Source</strong>
+                            <p>Free and open source under MIT license</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <div>
+                            <strong>Privacy First</strong>
+                            <p>All operations run locally, no data collection</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-users"></i>
+                        <div>
+                            <strong>Community</strong>
+                            <p>Built by and for the Fedora community</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-links">
+                    <a href="https://github.com" target="_blank" class="link-button">
+                        <i class="fab fa-github"></i>
+                        GitHub
+                    </a>
+                    <a href="https://fedarproject.xyz/donate" target="_blank" class="link-button">
+                        <i class="fas fa-heart"></i>
+                        Donate
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <div class="logo-icon">
+                            <i class="fas fa-box"></i>
+                        </div>
+                        <span>Fedar</span>
+                    </div>
+                    <p class="footer-tagline">Package management for Fedora</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Product</h4>
+                        <a href="#download">Download</a>
+                        <a href="#about">About</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Resources</h4>
+                        <a href="https://github.com" target="_blank">GitHub</a>
+                        <a href="https://fedarproject.xyz/donate" target="_blank">Donate</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Fedar. Open source software.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

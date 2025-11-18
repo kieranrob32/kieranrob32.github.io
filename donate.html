@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate - Fedar</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cantarell:wght@400;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        .donate-hero {
+            padding: 120px 0 80px;
+            text-align: center;
+            background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-tertiary) 100%);
+        }
+        
+        .donate-hero .container {
+            max-width: 700px;
+        }
+        
+        .donate-hero-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--accent-light);
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-size: 36px;
+            margin: 0 auto 24px;
+        }
+        
+        .donate-hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--fg-primary);
+            font-family: 'Cantarell', sans-serif;
+        }
+        
+        .donate-hero p {
+            font-size: 18px;
+            color: var(--fg-dim);
+            line-height: 1.8;
+        }
+        
+        .donate-section {
+            padding: 80px 0 100px;
+        }
+        
+        .crypto-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .crypto-card {
+            background: var(--bg-secondary);
+            padding: 28px;
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+        }
+        
+        .crypto-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+        
+        .crypto-icon {
+            width: 56px;
+            height: 56px;
+            background: var(--crypto-bg, var(--accent-light));
+            border-radius: var(--radius-small);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--crypto-color, var(--accent));
+            font-size: 24px;
+            flex-shrink: 0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .crypto-name {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--fg-primary);
+            font-family: 'Cantarell', sans-serif;
+        }
+        
+        .crypto-label {
+            font-size: 13px;
+            color: var(--fg-dim);
+            margin-top: 2px;
+            font-weight: 400;
+        }
+        
+        .crypto-address-container {
+            position: relative;
+        }
+        
+        .crypto-address-label {
+            font-size: 12px;
+            color: var(--fg-dim);
+            margin-bottom: 8px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .crypto-address-wrapper {
+            position: relative;
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-small);
+            padding: 14px 90px 14px 14px;
+            min-height: 52px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .crypto-address {
+            font-family: 'Cantarell', monospace;
+            font-size: 13px;
+            color: var(--fg-primary);
+            word-break: break-all;
+            line-height: 1.6;
+            flex: 1;
+        }
+        
+        .copy-address-btn {
+            position: absolute;
+            right: 8px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 8px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 12px;
+            font-weight: 500;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            white-space: nowrap;
+            font-family: 'Cantarell', sans-serif;
+        }
+        
+        .copy-address-btn:hover {
+            background: var(--accent-hover);
+            transform: translateY(-50%) scale(1.05);
+        }
+        
+        .copy-address-btn.copied {
+            background: var(--success);
+        }
+        
+        .copy-address-btn i {
+            font-size: 12px;
+        }
+        
+        .crypto-card[data-crypto="ltc"] {
+            --crypto-color: #345d9d;
+            --crypto-bg: rgba(52, 93, 157, 0.15);
+        }
+        
+        .crypto-card[data-crypto="eth"] {
+            --crypto-color: #627eea;
+            --crypto-bg: rgba(98, 126, 234, 0.15);
+        }
+        
+        .crypto-card[data-crypto="usdt"] {
+            --crypto-color: #26a17b;
+            --crypto-bg: rgba(38, 161, 123, 0.15);
+        }
+        
+        .crypto-card[data-crypto="doge"] {
+            --crypto-color: #c2a633;
+            --crypto-bg: rgba(194, 166, 51, 0.15);
+        }
+        
+        @media (prefers-color-scheme: dark) {
+            .crypto-card[data-crypto="ltc"] {
+                --crypto-bg: rgba(52, 93, 157, 0.25);
+            }
+            
+            .crypto-card[data-crypto="eth"] {
+                --crypto-bg: rgba(98, 126, 234, 0.25);
+            }
+            
+            .crypto-card[data-crypto="usdt"] {
+                --crypto-bg: rgba(38, 161, 123, 0.25);
+            }
+            
+            .crypto-card[data-crypto="doge"] {
+                --crypto-bg: rgba(194, 166, 51, 0.25);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .donate-hero {
+                padding: 80px 0 60px;
+            }
+            
+            .donate-hero h1 {
+                font-size: 36px;
+            }
+            
+            .crypto-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+        
+        @media (max-width: 640px) {
+            .donate-hero h1 {
+                font-size: 32px;
+            }
+            
+            .donate-hero-icon {
+                width: 64px;
+                height: 64px;
+                font-size: 28px;
+            }
+            
+            .crypto-card {
+                padding: 20px;
+            }
+            
+            .crypto-icon {
+                width: 48px;
+                height: 48px;
+                font-size: 20px;
+            }
+            
+            .crypto-name {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-box"></i>
+                    </div>
+                    <a href="index.html" style="text-decoration: none; color: inherit;">
+                        <span>Fedar</span>
+                    </a>
+                    <span class="alpha-badge">Alpha</span>
+                </div>
+                <div class="nav-links">
+                    <a href="index.html#download">Download</a>
+                    <a href="index.html#about">About</a>
+                    <a href="donate.html" class="donate-link">
+                        <i class="fas fa-heart"></i>
+                        Donate
+                    </a>
+                    <a href="https://github.com" target="_blank" class="github-link">
+                        <i class="fab fa-github"></i>
+                        GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="donate-hero">
+        <div class="container">
+            <div class="donate-hero-icon">
+                <i class="fas fa-heart"></i>
+            </div>
+            <h1>Support Fedar</h1>
+            <p>
+                Fedar is free and open source. If you find it useful, consider making a donation 
+                to support continued development. Every contribution helps!
+            </p>
+        </div>
+    </section>
+
+    <section class="donate-section">
+        <div class="container">
+            <div class="crypto-grid">
+                <div class="crypto-card" data-crypto="ltc">
+                    <div class="crypto-header">
+                        <div class="crypto-icon">
+                            <i class="fas fa-circle"></i>
+                        </div>
+                        <div>
+                            <div class="crypto-name">Litecoin</div>
+                            <div class="crypto-label">LTC</div>
+                        </div>
+                    </div>
+                    <div class="crypto-address-container">
+                        <div class="crypto-address-label">Wallet Address</div>
+                        <div class="crypto-address-wrapper">
+                            <div class="crypto-address" id="ltc-address">LbxSxrS9ipB3gpjWVvwpxF7kCy5eViTS36</div>
+                            <button class="copy-address-btn" onclick="copyAddress('ltc-address', this)">
+                                <i class="fas fa-copy"></i>
+                                <span>Copy</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="crypto-card" data-crypto="eth">
+                    <div class="crypto-header">
+                        <div class="crypto-icon">
+                            <i class="fab fa-ethereum"></i>
+                        </div>
+                        <div>
+                            <div class="crypto-name">Ethereum</div>
+                            <div class="crypto-label">ETH</div>
+                        </div>
+                    </div>
+                    <div class="crypto-address-container">
+                        <div class="crypto-address-label">Wallet Address</div>
+                        <div class="crypto-address-wrapper">
+                            <div class="crypto-address" id="eth-address">0x13C989250c8Db734D675E4c6bde6aE9a66e79a16</div>
+                            <button class="copy-address-btn" onclick="copyAddress('eth-address', this)">
+                                <i class="fas fa-copy"></i>
+                                <span>Copy</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="crypto-card" data-crypto="usdt">
+                    <div class="crypto-header">
+                        <div class="crypto-icon">
+                            <i class="fas fa-coins"></i>
+                        </div>
+                        <div>
+                            <div class="crypto-name">Tether</div>
+                            <div class="crypto-label">USDT</div>
+                        </div>
+                    </div>
+                    <div class="crypto-address-container">
+                        <div class="crypto-address-label">Wallet Address</div>
+                        <div class="crypto-address-wrapper">
+                            <div class="crypto-address" id="usdt-address">0x13C989250c8Db734D675E4c6bde6aE9a66e79a16</div>
+                            <button class="copy-address-btn" onclick="copyAddress('usdt-address', this)">
+                                <i class="fas fa-copy"></i>
+                                <span>Copy</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="crypto-card" data-crypto="doge">
+                    <div class="crypto-header">
+                        <div class="crypto-icon">
+                            <i class="fas fa-dog"></i>
+                        </div>
+                        <div>
+                            <div class="crypto-name">Dogecoin</div>
+                            <div class="crypto-label">DOGE</div>
+                        </div>
+                    </div>
+                    <div class="crypto-address-container">
+                        <div class="crypto-address-label">Wallet Address</div>
+                        <div class="crypto-address-wrapper">
+                            <div class="crypto-address" id="doge-address">DJ9naMdChs6UuNx6ZtN35yTkZWMQDzACE4</div>
+                            <button class="copy-address-btn" onclick="copyAddress('doge-address', this)">
+                                <i class="fas fa-copy"></i>
+                                <span>Copy</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <div class="logo-icon">
+                            <i class="fas fa-box"></i>
+                        </div>
+                        <span>Fedar</span>
+                    </div>
+                    <p class="footer-tagline">Package management for Fedora</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Product</h4>
+                        <a href="index.html#download">Download</a>
+                        <a href="index.html#about">About</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Resources</h4>
+                        <a href="https://github.com" target="_blank">GitHub</a>
+                        <a href="donate.html">Donate</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Fedar. Open source software.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function copyAddress(addressId, button) {
+            const addressElement = document.getElementById(addressId);
+            const address = addressElement.textContent;
+            
+            navigator.clipboard.writeText(address).then(() => {
+                const icon = button.querySelector('i');
+                const span = button.querySelector('span');
+                const originalIcon = icon.className;
+                const originalText = span.textContent;
+                
+                icon.className = 'fas fa-check';
+                span.textContent = 'Copied!';
+                button.classList.add('copied');
+                
+                setTimeout(() => {
+                    icon.className = originalIcon;
+                    span.textContent = originalText;
+                    button.classList.remove('copied');
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy:', err);
+            });
+        }
+    </script>
+</body>
+</html>
+
